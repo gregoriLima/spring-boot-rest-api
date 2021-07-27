@@ -2,6 +2,7 @@
  API to create news topics in a forum
 
 ### Implemented with Spring-Boot using:
+- Maven
 - JPA
 - H2 DB Engine
 - REST
