@@ -3,6 +3,7 @@
 
 ### Implemented with Spring-Boot using:
 - Maven
+- Pagination
 - JPA
 - H2 DB Engine
 - REST
