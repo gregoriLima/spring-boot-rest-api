@@ -8,6 +8,8 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -50,6 +52,7 @@ public class TopicoController {
     // Listando todos tópicos
     @Transactional // garantindo que este método vai rodar dentro de uma transação
     @GetMapping
+    @Cacheable( value = "listaDeTopicos")
     public Page<TopicoDTO> lista(@RequestParam(required = false) String nomeCurso, 
 	    @PageableDefault(sort = "id", direction = Direction.DESC) Pageable paginacao) { // parâmetros de url para paginação e ordenacao
 
@@ -65,6 +68,7 @@ public class TopicoController {
     // Criando um novo tópico
     @Transactional
     @PostMapping
+    @CacheEvict(value = "listaDeTopicos", allEntries = true)
     public ResponseEntity<TopicoDTO> cadastrar(@RequestBody @Valid TopicoForm form, UriComponentsBuilder uriBuilder) {
 
 	Topico topico = form.converter(cursoRepository); // convertendo a DTO para a clases Topico
@@ -94,6 +98,7 @@ public class TopicoController {
     // Atualizando um tópico
     @PutMapping("/{id}")
     @Transactional
+    @CacheEvict(value = "listaDeTopicos", allEntries = true)
     public ResponseEntity<TopicoDTO> atualizar(@PathVariable Long id,
 	    @RequestBody @Valid AtualizacaoTopicoForm formparaAtualizar) {
 
@@ -105,6 +110,7 @@ public class TopicoController {
     // Removendo um tópico
     @DeleteMapping("/{id}")
     @Transactional
+    @CacheEvict(value = "listaDeTopicos", allEntries = true)
     public ResponseEntity<?> remover(@PathVariable Long id) {
 
 	topicoRepository.deleteById(id);
