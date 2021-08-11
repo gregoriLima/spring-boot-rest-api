@@ -26,11 +26,9 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
 	http.authorizeRequests()
-		// neste método se diz quais urls devem ser filtradas e qual será o acesso, se será permitida ou bloqueada
-		// .antMatchers("/topicos").permitAll();// neste caso, para o endpoit /topicos, é liberado todos os método e nada é bloqueado neste endpoint
-		.antMatchers(HttpMethod.GET, "/topicos").permitAll() // permitindo tudo no endpoit /topicos para o método GET
-		.antMatchers(HttpMethod.GET, "/topicos/*").permitAll(); // esse serão os endpoints públicos, pois não terão controle de acesso para o método GET
-
+		.antMatchers(HttpMethod.GET, "/topicos").permitAll()
+		.antMatchers(HttpMethod.GET, "/topicos/*").permitAll()
+		.anyRequest().authenticated();
     }
     
     // configurações de recursos estáticos
