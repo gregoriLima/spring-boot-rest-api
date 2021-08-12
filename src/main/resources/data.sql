@@ -1,6 +1,6 @@
 --ao iniciar o spring, ele executa tudo que estiver aqui sem os comentários '--' deste arquivo, no banco de dados
 
-INSERT INTO USUARIO(nome, email, senha) VALUES('Aluno', 'aluno@email.com', '123456');
+INSERT INTO USUARIO(nome, email, senha) VALUES('Aluno', 'aluno@email.com', '$2a$10$X/JlWvlnYyGX5OBBS2WeqOvWafI1s/wEkM78IuxpV5qW3QHqzWCQK');
 
 INSERT INTO CURSO(nome, categoria) VALUES('Spring Boot', 'Programação');
 INSERT INTO CURSO(nome, categoria) VALUES('HTML 5', 'Front-end');
