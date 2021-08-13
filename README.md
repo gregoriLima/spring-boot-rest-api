@@ -6,6 +6,7 @@
 - Pagination and Sorting
 - Caching to improve performance
 - Security
+- Stateless Authentication using JWT
 - JPA
 - H2 DB Engine
 - REST
