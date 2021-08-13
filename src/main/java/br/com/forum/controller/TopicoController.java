@@ -32,8 +32,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import br.com.forum.controller.form.AtualizacaoTopicoForm;
+import br.com.forum.controller.form.TopicoForm;
 import br.com.forum.dto.TopicoDTO;
-import br.com.forum.form.TopicoForm;
 import br.com.forum.modelo.Curso;
 import br.com.forum.modelo.Topico;
 import br.com.forum.repository.CursoRepository;

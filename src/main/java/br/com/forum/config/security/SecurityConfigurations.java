@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import br.com.forum.config.security.AutenticacaoService;
@@ -37,8 +38,10 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 	http.authorizeRequests()
 		.antMatchers(HttpMethod.GET, "/topicos").permitAll()
 		.antMatchers(HttpMethod.GET, "/topicos/*").permitAll()
+		.antMatchers(HttpMethod.POST, "/auth").permitAll()
 		.anyRequest().authenticated()
-		.and().formLogin();
+		.and().csrf().disable()  
+		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS); // definindo que não será utilizado session na autenticação
     }
     
     // configurações de recursos estáticos

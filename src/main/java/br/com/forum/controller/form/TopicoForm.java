@@ -1,4 +1,4 @@
-package br.com.forum.form;
+package br.com.forum.controller.form;
 
 // ESSA É A CLASSE DTO DOS DADOS QUE VEM DO CLIENTE
 

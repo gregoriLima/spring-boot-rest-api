@@ -12,5 +12,5 @@
 - REST
 - CRUD
 - DTO
-- Bean Validator
+- Bean Validation
 - Exception handler
