@@ -1,8 +1,10 @@
 package br.com.forum.config.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -20,6 +22,14 @@ import br.com.forum.config.security.AutenticacaoService;
 @Configuration
 public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 
+    
+    @Override
+    @Bean
+    protected AuthenticationManager authenticationManager() throws Exception {
+        // TODO Auto-generated method stub
+        return super.authenticationManager();
+    }
+    
     @Autowired
     private AutenticacaoService autenticacaoService;
     
