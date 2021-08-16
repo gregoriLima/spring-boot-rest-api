@@ -13,7 +13,10 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import br.com.forum.config.security.AutenticacaoViaTokenFilter;
+import br.alura.com.forum.config.security.TokenService;
 import br.com.forum.config.security.AutenticacaoService;
 
 // configurando a segurança
@@ -29,6 +32,9 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
         // TODO Auto-generated method stub
         return super.authenticationManager();
     }
+    
+    @Autowired
+    private TokenService tokenService;
     
     @Autowired
     private AutenticacaoService autenticacaoService;
@@ -51,7 +57,8 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 		.antMatchers(HttpMethod.POST, "/auth").permitAll()
 		.anyRequest().authenticated()
 		.and().csrf().disable()  
-		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS); // definindo que não será utilizado session na autenticação
+		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS) // definindo que não será utilizado session na autenticação
+		.and().addFilterBefore(new AutenticacaoViaTokenFilter(tokenService), UsernamePasswordAuthenticationFilter.class); // filtro para fazer a autenticação via jwt
     }
     
     // configurações de recursos estáticos
