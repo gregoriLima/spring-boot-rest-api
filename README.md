@@ -8,7 +8,7 @@
 - Security
 - Stateless Authentication using JWT
 - Monitoring using Actuator
-- Documentation with Swagger
+- Documentation using SpringFox Swagger
 - JPA
 - H2 DB Engine
 - REST
