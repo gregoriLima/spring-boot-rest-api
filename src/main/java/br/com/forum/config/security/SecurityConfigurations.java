@@ -16,7 +16,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import br.com.forum.config.security.AutenticacaoViaTokenFilter;
-import br.alura.com.forum.config.security.TokenService;
+import br.com.forum.config.security.TokenService;
 import br.com.forum.config.security.AutenticacaoService;
 
 // configurando a segurança
