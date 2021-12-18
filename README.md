@@ -7,6 +7,8 @@
 - Caching to improve performance
 - Security
 - Stateless Authentication using JWT
+- Roles based access
+- Profiles
 - Monitoring using Actuator
 - Documentation using SpringFox Swagger
 - JPA
