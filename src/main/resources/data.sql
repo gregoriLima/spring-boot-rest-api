@@ -1,6 +1,21 @@
 --ao iniciar o spring, ele executa tudo que estiver aqui sem os comentários '--' deste arquivo, no banco de dados
 
 INSERT INTO USUARIO(nome, email, senha) VALUES('Aluno', 'aluno@email.com', '$2a$10$X/JlWvlnYyGX5OBBS2WeqOvWafI1s/wEkM78IuxpV5qW3QHqzWCQK');
+INSERT INTO USUARIO(nome, email, senha) VALUES('Moderador', 'moderador@email.com', '$2a$10$X/JlWvlnYyGX5OBBS2WeqOvWafI1s/wEkM78IuxpV5qW3QHqzWCQK');
+
+
+--CRIANDO DOIS PERFIS NA TABELA PERFIL
+--**o spring tem este padrão para o ROLE, deve iniciar com 'ROLE_'
+INSERT INTO PERFIL(id, nome) VALUES(1, 'ROLE_ALUNO');
+INSERT INTO PERFIL(id, nome) VALUES(2, 'ROLE_MODERADOR');
+
+
+--ASSOCIANDO UM USUÁRIO A UM ROLE
+--definindo o aluno com role de aluno
+INSERT INTO USUARIO_PERFIS(usuario_id, perfis_id) VALUES(1, 1);
+--definindo o moderado com role de moderador
+INSERT INTO USUARIO_PERFIS(usuario_id, perfis_id) VALUES(2, 2);
+
 
 INSERT INTO CURSO(nome, categoria) VALUES('Spring Boot', 'Programação');
 INSERT INTO CURSO(nome, categoria) VALUES('HTML 5', 'Front-end');
