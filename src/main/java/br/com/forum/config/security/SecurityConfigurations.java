@@ -3,6 +3,7 @@ package br.com.forum.config.security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -23,6 +24,7 @@ import br.com.forum.config.security.AutenticacaoService;
 
 @EnableWebSecurity
 @Configuration
+@Profile("prod")  // só carrega esta classe em ambiente de produção
 public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 
     
