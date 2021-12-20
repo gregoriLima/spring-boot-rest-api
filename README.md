@@ -9,6 +9,7 @@
 - Stateless Authentication using JWT
 - Roles based access
 - Profiles
+- JUnit5 Tests
 - Monitoring using Actuator
 - Documentation using SpringFox Swagger
 - JPA

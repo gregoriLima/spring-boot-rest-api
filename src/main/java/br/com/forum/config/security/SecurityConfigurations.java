@@ -24,7 +24,7 @@ import br.com.forum.config.security.AutenticacaoService;
 
 @EnableWebSecurity
 @Configuration
-@Profile("prod")  // só carrega esta classe em ambiente de produção
+@Profile(value = {"prod","test","default"}) // só carrega esta classe somente nestes ambientes
 public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 
     

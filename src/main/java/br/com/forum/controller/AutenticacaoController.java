@@ -19,7 +19,7 @@ import br.com.forum.controller.form.LoginForm;
 
 @RestController
 @RequestMapping("/auth")
-@Profile("prod")  // só carrega esta classe em ambiente de produção
+@Profile(value = {"prod","test"})  // só carrega esta classe em ambiente de produção e teste
 public class AutenticacaoController {
     
     @Autowired
